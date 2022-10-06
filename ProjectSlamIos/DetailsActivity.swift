@@ -1,5 +1,5 @@
 //
-//  ThirdViewController.swift
+//  DetailsActivity.swift
 //  ProjectSlamIos
 //
 //  Created by Loris Poilly on 05/10/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DetailsActivity: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var nameActivity: String = ""
     var descriptionActivity: String = ""

@@ -11,6 +11,8 @@
 		7C05BE6328EC1A2200BDE414 /* SF-Pro-Rounded-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7C05BE6128EC19B400BDE414 /* SF-Pro-Rounded-Regular.otf */; };
 		7C05BE6628EC1BB600BDE414 /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7C05BE6528EC1BAB00BDE414 /* SF-Pro-Text-Semibold.otf */; };
 		7C05BE6A28EC1CF000BDE414 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7C05BE6928EC1CF000BDE414 /* SF-Pro-Display-Bold.otf */; };
+		7C0A7FD828EF7C77008596F0 /* ConnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A7FD728EF7C77008596F0 /* ConnectView.swift */; };
+		7C0A7FDA28EF7C83008596F0 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A7FD928EF7C83008596F0 /* RegisterView.swift */; };
 		7C0BF63628E339F700C29409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0BF63528E339F700C29409 /* AppDelegate.swift */; };
 		7C0BF63828E339F700C29409 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0BF63728E339F700C29409 /* SceneDelegate.swift */; };
 		7C0BF63A28E339F700C29409 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0BF63928E339F700C29409 /* ViewController.swift */; };
@@ -21,8 +23,8 @@
 		7C0BF65728E339F800C29409 /* ProjectSlamIosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0BF65628E339F800C29409 /* ProjectSlamIosUITests.swift */; };
 		7C0BF65928E339F800C29409 /* ProjectSlamIosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0BF65828E339F800C29409 /* ProjectSlamIosUITestsLaunchTests.swift */; };
 		7C4F7B2D28ED664C00AFBD72 /* CalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7C4F7B2C28ED664C00AFBD72 /* CalendarKit */; };
-		7C4F7B3128ED90C500AFBD72 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F7B3028ED90C500AFBD72 /* ThirdViewController.swift */; };
-		7CA752CB28EC74C7002A384F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA752CA28EC74C7002A384F /* SecondViewController.swift */; };
+		7C4F7B3128ED90C500AFBD72 /* DetailsActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F7B3028ED90C500AFBD72 /* DetailsActivity.swift */; };
+		7CA752CB28EC74C7002A384F /* ListActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA752CA28EC74C7002A384F /* ListActivitiesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		7C05BE6128EC19B400BDE414 /* SF-Pro-Rounded-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Regular.otf"; path = "../../../../../../Library/Fonts/SF-Pro-Rounded-Regular.otf"; sourceTree = "<group>"; };
 		7C05BE6528EC1BAB00BDE414 /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Text-Semibold.otf"; path = "../../../../../../Library/Fonts/SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
 		7C05BE6928EC1CF000BDE414 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Display-Bold.otf"; path = "../../../../../../Library/Fonts/SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
+		7C0A7FD728EF7C77008596F0 /* ConnectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectView.swift; sourceTree = "<group>"; };
+		7C0A7FD928EF7C83008596F0 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		7C0BF63228E339F700C29409 /* ProjectSlamIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectSlamIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C0BF63528E339F700C29409 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C0BF63728E339F700C29409 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,8 +64,8 @@
 		7C0BF65228E339F800C29409 /* ProjectSlamIosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectSlamIosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C0BF65628E339F800C29409 /* ProjectSlamIosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSlamIosUITests.swift; sourceTree = "<group>"; };
 		7C0BF65828E339F800C29409 /* ProjectSlamIosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSlamIosUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		7C4F7B3028ED90C500AFBD72 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		7CA752CA28EC74C7002A384F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		7C4F7B3028ED90C500AFBD72 /* DetailsActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsActivity.swift; sourceTree = "<group>"; };
+		7CA752CA28EC74C7002A384F /* ListActivitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListActivitiesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,12 +132,14 @@
 				7C0BF63528E339F700C29409 /* AppDelegate.swift */,
 				7C0BF63728E339F700C29409 /* SceneDelegate.swift */,
 				7C0BF63928E339F700C29409 /* ViewController.swift */,
-				7CA752CA28EC74C7002A384F /* SecondViewController.swift */,
-				7C4F7B3028ED90C500AFBD72 /* ThirdViewController.swift */,
+				7CA752CA28EC74C7002A384F /* ListActivitiesView.swift */,
+				7C4F7B3028ED90C500AFBD72 /* DetailsActivity.swift */,
 				7C0BF63B28E339F700C29409 /* Main.storyboard */,
 				7C0BF63E28E339F800C29409 /* Assets.xcassets */,
 				7C0BF64028E339F800C29409 /* LaunchScreen.storyboard */,
 				7C0BF64328E339F800C29409 /* Info.plist */,
+				7C0A7FD728EF7C77008596F0 /* ConnectView.swift */,
+				7C0A7FD928EF7C83008596F0 /* RegisterView.swift */,
 			);
 			path = ProjectSlamIos;
 			sourceTree = "<group>";
@@ -298,8 +304,10 @@
 			files = (
 				7C0BF63A28E339F700C29409 /* ViewController.swift in Sources */,
 				7C0BF63628E339F700C29409 /* AppDelegate.swift in Sources */,
-				7C4F7B3128ED90C500AFBD72 /* ThirdViewController.swift in Sources */,
-				7CA752CB28EC74C7002A384F /* SecondViewController.swift in Sources */,
+				7C4F7B3128ED90C500AFBD72 /* DetailsActivity.swift in Sources */,
+				7C0A7FDA28EF7C83008596F0 /* RegisterView.swift in Sources */,
+				7C0A7FD828EF7C77008596F0 /* ConnectView.swift in Sources */,
+				7CA752CB28EC74C7002A384F /* ListActivitiesView.swift in Sources */,
 				7C0BF63828E339F700C29409 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

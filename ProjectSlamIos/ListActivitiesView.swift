@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  ListActivitiesView.swift
 //  ProjectSlamIos
 //
 //  Created by Loris Poilly on 04/10/2022.
@@ -31,7 +31,7 @@ private let activities: [CategoryActivities] = [
     ], max_users: 50, id_site: 1, id: 3),
 ]
 
-class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ListActivitiesView: UIViewController, UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate {
     var nameVillage: String = ""
     var idVillage: Int = 0
     var noActivies: Bool = false
@@ -99,7 +99,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if idActivity != 0 {
                 for activity in activities {
                     if activity.id == idActivity {
-                        let vc = storyboard?.instantiateViewController(identifier: "ThirdViewController") as! ThirdViewController
+                        let vc = storyboard?.instantiateViewController(identifier: "DetailsActivity") as! DetailsActivity
                         vc.nameActivity = activity.name
                         vc.descriptionActivity = activity.description
                         vc.durationActivity = activity.duration
@@ -136,6 +136,25 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     @IBAction func UsersCircleClicked() {
-        print("User clicked")
+        let optionMenu = UIAlertController(title: nil, message: "Choisissez une option", preferredStyle: .actionSheet)
+
+        let connectACtion = UIAlertAction(title: "Se connecter", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("connect")
+        })
+        
+        let registerAction = UIAlertAction(title: "S'enregistrer", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("register")
+        })
+        
+        let cancelAction = UIAlertAction(title: "Retour", style: .cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("back")
+        })
+        optionMenu.addAction(connectACtion)
+        optionMenu.addAction(registerAction)
+        optionMenu.addAction(cancelAction)
+        self.present(optionMenu, animated: true, completion: nil)
     }
 }

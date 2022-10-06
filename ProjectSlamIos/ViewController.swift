@@ -38,7 +38,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.deselectRow(at: indexPath, animated: true)
         let category = data[indexPath.row]
         
-        let vc = storyboard?.instantiateViewController(identifier: "SecondViewController") as! SecondViewController
+        let vc = storyboard?.instantiateViewController(identifier: "ListActivitiesView") as! ListActivitiesView
         vc.modalPresentationStyle = .fullScreen
         vc.nameVillage = category.title
         vc.idVillage = category.id
