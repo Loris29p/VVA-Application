@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 struct CategoryActivities {
     let name: String
@@ -38,8 +39,7 @@ class ListActivitiesView: UIViewController, UITableViewDelegate, UITableViewData
     var idActivitiesVillage: [Int] = []
     var activitiesPath: [Int] = []
     var countReload: Int = 0
-
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count = 0
         for activity in activities {
@@ -134,13 +134,18 @@ class ListActivitiesView: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func ReturnToHomeClicked() {
         dismiss(animated: true)
     }
+    
+    func OpenLoginForm() {
+        let vc = storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+        present(vc, animated: true)
+    }
 
     @IBAction func UsersCircleClicked() {
         let optionMenu = UIAlertController(title: nil, message: "Choisissez une option", preferredStyle: .actionSheet)
 
         let connectACtion = UIAlertAction(title: "Se connecter", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
-            print("connect")
+            self.OpenLoginForm()
         })
         
         let registerAction = UIAlertAction(title: "S'enregistrer", style: .default, handler: {
@@ -150,7 +155,6 @@ class ListActivitiesView: UIViewController, UITableViewDelegate, UITableViewData
         
         let cancelAction = UIAlertAction(title: "Retour", style: .cancel, handler: {
             (alert: UIAlertAction!) -> Void in
-            print("back")
         })
         optionMenu.addAction(connectACtion)
         optionMenu.addAction(registerAction)

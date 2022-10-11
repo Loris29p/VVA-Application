@@ -22,9 +22,9 @@
 		7C0BF64D28E339F800C29409 /* ProjectSlamIosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0BF64C28E339F800C29409 /* ProjectSlamIosTests.swift */; };
 		7C0BF65728E339F800C29409 /* ProjectSlamIosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0BF65628E339F800C29409 /* ProjectSlamIosUITests.swift */; };
 		7C0BF65928E339F800C29409 /* ProjectSlamIosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0BF65828E339F800C29409 /* ProjectSlamIosUITestsLaunchTests.swift */; };
-		7C4F7B2D28ED664C00AFBD72 /* CalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7C4F7B2C28ED664C00AFBD72 /* CalendarKit */; };
 		7C4F7B3128ED90C500AFBD72 /* DetailsActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F7B3028ED90C500AFBD72 /* DetailsActivity.swift */; };
 		7CA752CB28EC74C7002A384F /* ListActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA752CA28EC74C7002A384F /* ListActivitiesView.swift */; };
+		7CA95E1C28F5707200C3E385 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA95E1B28F5707200C3E385 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +66,7 @@
 		7C0BF65828E339F800C29409 /* ProjectSlamIosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSlamIosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7C4F7B3028ED90C500AFBD72 /* DetailsActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsActivity.swift; sourceTree = "<group>"; };
 		7CA752CA28EC74C7002A384F /* ListActivitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListActivitiesView.swift; sourceTree = "<group>"; };
+		7CA95E1B28F5707200C3E385 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +74,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C4F7B2D28ED664C00AFBD72 /* CalendarKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +140,7 @@
 				7C0BF64328E339F800C29409 /* Info.plist */,
 				7C0A7FD728EF7C77008596F0 /* ConnectView.swift */,
 				7C0A7FD928EF7C83008596F0 /* RegisterView.swift */,
+				7CA95E1B28F5707200C3E385 /* LoginViewController.swift */,
 			);
 			path = ProjectSlamIos;
 			sourceTree = "<group>";
@@ -178,7 +179,6 @@
 			);
 			name = ProjectSlamIos;
 			packageProductDependencies = (
-				7C4F7B2C28ED664C00AFBD72 /* CalendarKit */,
 			);
 			productName = ProjectSlamIos;
 			productReference = 7C0BF63228E339F700C29409 /* ProjectSlamIos.app */;
@@ -306,6 +306,7 @@
 				7C0BF63628E339F700C29409 /* AppDelegate.swift in Sources */,
 				7C4F7B3128ED90C500AFBD72 /* DetailsActivity.swift in Sources */,
 				7C0A7FDA28EF7C83008596F0 /* RegisterView.swift in Sources */,
+				7CA95E1C28F5707200C3E385 /* LoginViewController.swift in Sources */,
 				7C0A7FD828EF7C77008596F0 /* ConnectView.swift in Sources */,
 				7CA752CB28EC74C7002A384F /* ListActivitiesView.swift in Sources */,
 				7C0BF63828E339F700C29409 /* SceneDelegate.swift in Sources */,
@@ -667,14 +668,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		7C4F7B2C28ED664C00AFBD72 /* CalendarKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7C4F7B2B28ED664C00AFBD72 /* XCRemoteSwiftPackageReference "CalendarKit" */;
-			productName = CalendarKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7C0BF62A28E339F700C29409 /* Project object */;
 }
