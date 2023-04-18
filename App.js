@@ -10,6 +10,8 @@ import { Button } from 'react-native';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
+import { horizontalScale, moderateScale, verticalScale } from './navigation/utils/Metrics';
+
 import ActivitiesScreen from './navigation/screens/Activities';
 import FavoritesScreen from './navigation/screens/Favorites';
 
@@ -17,30 +19,44 @@ import { View, Text } from 'react-native';
 
 function Home() {
   return (
-    <Tab.Navigator
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
+    <>
+        <View style={{
+            position: 'absolute',
+            display: 'flex',
+            flexDirection: 'row',
+            width: '100%',
+            zIndex: 1,
+            marginTop: verticalScale(58),
+            justifyContent: 'flex-end',
+        }}>
+            <Ionicons name="person-circle-outline" size={30} color="#3D9090" style={{marginRight: 10}} />
+        </View>
 
-          if (route.name === 'Activities') {
-            iconName = focused
-              ? 'ios-home'
-              : 'ios-home-outline';
-          } else if (route.name === 'Favorites') {
-            iconName = focused ? 'ios-heart' : 'ios-heart-outline';
-          }
+        <Tab.Navigator
+        screenOptions={({ route }) => ({
+            tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
 
-          return <Ionicons name={iconName} size={size} color={color} />;
-        },
-      })}
-      tabBarOptions={{
-        activeTintColor: '#3D9090',
-        inactiveTintColor: 'gray',
-      }}
-    >
-      <Tab.Screen name="Activities" component={ActivitiesScreen} />
-      <Tab.Screen name="Favorites" component={FavoritesScreen} />
-    </Tab.Navigator>
+            if (route.name === 'Activities') {
+                iconName = focused
+                ? 'ios-home'
+                : 'ios-home-outline';
+            } else if (route.name === 'Favorites') {
+                iconName = focused ? 'ios-heart' : 'ios-heart-outline';
+            }
+
+            return <Ionicons name={iconName} size={size} color={color} />;
+            },
+        })}
+        tabBarOptions={{
+            activeTintColor: '#3D9090',
+            inactiveTintColor: 'gray',
+        }}
+        >
+            <Tab.Screen name="Activities" component={ActivitiesScreen} />
+            <Tab.Screen name="Favorites" component={FavoritesScreen} />
+        </Tab.Navigator>
+    </>
   );
 }
 
