@@ -1,25 +1,39 @@
 import * as React from 'react';
 
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons'
-
+import { Button } from 'react-native';
 
 // Screens
 import ActivitiesScreen from './screens/Activities';
 import FavoritesScreen from './screens/Favorites';
-// import ParametersScreen from './screens/Parameters';
+import ParametersScreen from './screens/Parameters';
 
 // Screen names 
 const activitiesName = 'Accueil';
 const favoritesName = 'Favories';
-// const parametersName = 'Paramètres';
+const parametersName = 'Paramètres';
 
 const BottomTab = createBottomTabNavigator();
 
-export default function MainContainer() {
+export default function App() {
     return (
         <NavigationContainer>
+            <MainContainer />
+        </NavigationContainer>
+    );
+}
+
+function MainContainer() {
+    const navigation = useNavigation();
+
+    return (
+        <>
+            {/* create button to go to the next screen top right */}
+            <Button title='Go to Activities' onPress={() => navigation.navigate('Activities')}/>
+            <Button title='Go to Favorites' onPress={() => navigation.navigate('Favorites')}/>
+
             <BottomTab.Navigator 
             initialRouteName='activitiesName'
             screenOptions={({route}) => ({
@@ -47,7 +61,6 @@ export default function MainContainer() {
 
                 
             </BottomTab.Navigator>
-
-        </NavigationContainer>
-    )
+        </>
+    );
 }
