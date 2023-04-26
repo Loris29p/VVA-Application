@@ -2,6 +2,8 @@ import { Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
+console.log('width', width, 'height', height)
+
 const guidelineBaseWidth = 375;
 const guidelineBaseHeight = 812;
 
