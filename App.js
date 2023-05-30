@@ -14,6 +14,7 @@ import { horizontalScale, moderateScale, verticalScale } from './navigation/util
 
 import ActivitiesScreen from './navigation/screens/Activities';
 import FavoritesScreen from './navigation/screens/Favorites';
+import ParametersScreen from './navigation/screens/Parameters';
 
 import { View, Text } from 'react-native';
 
@@ -26,7 +27,7 @@ function Home() {
             flexDirection: 'row',
             width: '100%',
             zIndex: 1,
-            marginTop: verticalScale(58),
+            marginTop: verticalScale(50),
             justifyContent: 'flex-end',
         }}>
             <Ionicons name="person-circle-outline" size={30} color="#3D9090" style={{marginRight: 10}} />
@@ -55,6 +56,7 @@ function Home() {
         >
             <Tab.Screen name="Activities" component={ActivitiesScreen} />
             <Tab.Screen name="Favorites" component={FavoritesScreen} />
+            <Tab.Screen name="Parameters" component={ParametersScreen} />
         </Tab.Navigator>
     </>
   );
@@ -71,6 +73,7 @@ function App() {
         />
         <Stack.Screen name="Activities" component={ActivitiesScreen} />
         <Stack.Screen name="Favorites" component={FavoritesScreen} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
