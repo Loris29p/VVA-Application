@@ -37,7 +37,15 @@ class Activities {
     }
 
     getActivity(id) {
-        return this.activities[id];
+        var activity = null
+
+        for (let i = 0; i < this.activities.length; i++) {
+            if (this.activities[i].id === id) {
+                activity = this.activities[i];
+            }
+        }
+
+        return activity;
     }
 
     deleteActivity(id) {

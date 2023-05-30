@@ -1,11 +1,12 @@
 class UserActivities {
     constructor() {
         this.userActivities = [];
+        var userActivities = this.userActivities;
 
-        const responseData = window.classDatabase.select("SELECT * FROM user_activities");
+        const responseData = window.classDatabase.select("SELECT * FROM users_activities");
         responseData.then(function(response) {
-            for (let i = 0; i < response.length; i++) {
-                this.userActivities.push({
+            for (let i = 0; i < response.data.length; i++) {
+                userActivities.push({
                     id: response.data[i].id,
                     id_user: response.data[i].id_user,
                     id_activity: response.data[i].id_activity
@@ -55,14 +56,27 @@ class UserActivities {
     }
 
     removeUserActivity(userId, activityId) {
+        const userActivities = this.userActivities;
+
+        window.classDatabase.delete("DELETE FROM users_activities WHERE id_user = '" + userId + "' AND id_activity = '" + activityId + "'");
+        
+        userActivities.forEach(function(userActivity, index) {
+            if (userActivity.id_user === userId && userActivity.id_activity === activityId) {
+                userActivities.splice(index, 1);
+            }
+        });
+    }
+
+    isUserActivity(userId, activityId) {
         const userActivity = this.userActivities.find(function(userActivity) {
-            return userActivity.user_id === userId && userActivity.activity_id === activityId;
+            return userActivity.id_user === userId && userActivity.id_activity === activityId;
         });
 
-        const responseData = window.classDatabase.delete("user_activities", userActivity.id);
-        responseData.then(function(response) {
-            this.userActivities.splice(this.userActivities.indexOf(userActivity), 1);
-        });
+        if (userActivity !== undefined) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 

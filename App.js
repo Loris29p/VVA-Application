@@ -14,6 +14,7 @@ import FavoritesScreen from './navigation/screens/Favorites';
 import ParametersScreen from './navigation/screens/Parameters';
 import LogIn from './navigation/screens/LogIn';
 import Register from './navigation/screens/Register';
+import Activity from './navigation/screens/Activity';
 
 import { View, Text } from 'react-native';
 import OptionsMenu from "react-native-option-menu";
@@ -152,6 +153,7 @@ function App() {
         <Stack.Screen name="Paramètres" component={ParametersScreen} />
         <Stack.Screen name="Se connecter" component={LogIn} />
         <Stack.Screen name="S'inscrire" component={Register} />
+        <Stack.Screen name="Activité" component={Activity} />
       </Stack.Navigator>
     </NavigationContainer>
   );
