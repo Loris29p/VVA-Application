@@ -29,10 +29,22 @@ class UserActivities {
 
     getUserActivitiesByActivityId(activityId) {
         const userActivities = this.userActivities.filter(function(userActivity) {
-            return userActivity.activity_id === activityId;
+            return userActivity.id_activity === activityId;
         });
 
         return userActivities;
+    }
+
+    getCountUsersFromActivityId(activityId) {
+        var count = 0;
+
+        this.userActivities.forEach(function(userActivity) {
+            if (userActivity.id_activity === activityId) {
+                count++;
+            }
+        });
+
+        return count;
     }
 
     addUserActivity(userId, activityId) {

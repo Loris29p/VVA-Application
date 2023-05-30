@@ -96,13 +96,13 @@ export default function Activities({navigation}) {
                                         }}
                                         onPress={
                                             () => {
-                                                navigation.navigate('Activité', { activity: activity });
+                                                navigation.navigate('Activité', { activity: activity, user: user });
                                             }
                                         }>
                                             <View style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                                                 <Text style={{
                                                     fontSize: 16
-                                                }}>{activity.name} le {formatDateTime(activity.date)} à {formatHour(activity.hours)} () </Text>
+                                                }}>{activity.name} le {formatDateTime(activity.date)} à {formatHour(activity.hours)} ({window.classUserActivities.getCountUsersFromActivityId(activity.id)}/{activity.max_users})</Text>
                                             </View>
                                             <Ionicons name="chevron-forward-outline" size={24} color="gray"/>
 

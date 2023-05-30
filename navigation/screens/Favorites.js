@@ -57,7 +57,7 @@ export default function Favorites({navigation}) {
                                             <Text style={{ fontSize: moderateScale(16), fontWeight: 'bold', marginRight: horizontalScale(16), color: 'gray' }}>{activityData.description}</Text>
                                             <Ionicons name="ios-information-circle-outline" size={moderateScale(24)} color="#3D9090" style={{ marginRight: horizontalScale(16) }}
                                                 onPress={() => {
-                                                    navigation.navigate('Activité', { activity: activityData });
+                                                    navigation.navigate('Activité', { activity: activityData, user: user });
                                                 }}
                                             />
                                         </View>
