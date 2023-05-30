@@ -54,8 +54,6 @@ function MainContainer() {
 
             <BottomTab.Screen name={activitiesName} component={ActivitiesScreen}/>
             <BottomTab.Screen name={favoritesName} component={FavoritesScreen}/>
-            {/* <Tab.Screen name={parametersName} component={ParametersScreen}/> */}
-
                 
             </BottomTab.Navigator>
         </>
