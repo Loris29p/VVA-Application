@@ -47,9 +47,6 @@ function MainContainer() {
                     else if (rn === favoritesName) {
                         iconName = focused ? 'list' : 'list-outline'
                     }
-                    // else if (rn === parametersName) {
-                    //     iconName = focused ? 'settings' : 'settings-outline'
-                    // }
 
                     return <Ionicons name={iconName} size={size} color={color}/>
                 },

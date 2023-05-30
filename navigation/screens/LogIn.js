@@ -7,21 +7,34 @@ export default function LogIn({navigation}) {
     const [password, setPassword] = React.useState('');
 
     function LogIn() {
-        window.classDatabase.select("SELECT * FROM users WHERE email = '" + email + "'").then(function(response) {
-            if (response !== undefined) {
-                if (response.data.length > 0) {
-                    if (window.classEncryption.decrypt(response.data[0].password) === password) {
-                        AsyncStorage.setItem('user', JSON.stringify(response.data[0]));
-                        AsyncStorage.setItem('isConnected', 'true');
-                        navigation.navigate('Accueil');
-                    } else {
-                        alert('Mot de passe incorrect');
-                    }
-                } else {
-                    alert('Cet email n\'existe pas');
+        if (email === '' || password === '') {
+            alert('Veuillez remplir tous les champs');
+        } else {
+            const login = window.classUsers.login(email, password);
+            setTimeout(() => {
+                if (login.logged === true) {
+                    navigation.navigate('Accueil');
+                } else if (login.error === true) {
+                    alert(login.message);
                 }
-            }
-        });
+            }, 100);
+        }
+
+        // window.classDatabase.select("SELECT * FROM users WHERE email = '" + email + "'").then(function(response) {
+        //     if (response !== undefined) {
+        //         if (response.data.length > 0) {
+        //             if (window.classEncryption.decrypt(response.data[0].password) === password) {
+        //                 AsyncStorage.setItem('user', JSON.stringify(response.data[0]));
+        //                 AsyncStorage.setItem('isConnected', 'true');
+        //                 navigation.navigate('Accueil');
+        //             } else {
+        //                 alert('Mot de passe incorrect');
+        //             }
+        //         } else {
+        //             alert('Cet email n\'existe pas');
+        //         }
+        //     }
+        // });
     }
 
     return(
@@ -56,10 +69,27 @@ export default function LogIn({navigation}) {
                 secureTextEntry={true}
                 onChangeText={text => setPassword(text)}
             />
-            <Button
-                title="Se connecter"
-                onPress={() => LogIn()}
-            />
+            <View style={{ marginTop: 10 }}>
+                <Text style={{ color: 'blue' }} onPress={() => navigation.navigate('Mot de passe oublié')}>Mot de passe oublié ?</Text>
+            </View>
+            <View style={{ 
+                marginTop: 10,
+                width: 300,
+                backgroundColor: '#007fff',
+                borderRadius: 5,
+                color: '#FFFFFF',
+                textAlign: 'center',
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+            }}>
+                <Text style={{ 
+                    color: '#FFFFFF', 
+                    padding: 10,
+                    width: 300,
+                    textAlign: 'center',
+                }} onPress={() => LogIn()}>Se connecter</Text>
+            </View>
 
         </View>
     )

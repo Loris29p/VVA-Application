@@ -9,31 +9,18 @@ export default function Register({navigation}) {
     const [lastname, setLastname] = React.useState('');
 
     function Register() {
-        window.classDatabase.select("SELECT * FROM users WHERE email = '" + email + "'").then(function(response) {
-            console.log(response);
-            if (response !== undefined) {
-                if (response.data.length > 0) {
-                    alert('Cet email est déjà utilisé');
-                } else {
-                    window.classDatabase.insert("INSERT INTO users (email, password, firstname, lastname) VALUES ('" + email + "', '" + window.classEncryption.encrypt(password) + "', '" + firstname + "', '" + lastname + "')");
-                    setTimeout(function() {
-                        const responseData = window.classDatabase.select("SELECT * FROM users WHERE email = '" + email + "'");
-                        responseData.then(function(response) {
-                            if (response !== undefined) {
-                                if (response.data.length > 0) {
-                                    AsyncStorage.setItem('user', JSON.stringify(response.data[0]));
-                                    AsyncStorage.setItem('isConnected', 'true');
-                                    // AsyncStorage.getItem('user').then((value) => {
-                                    //     console.log(value);
-                                    // });
-                                    navigation.navigate('Accueil');
-                                }
-                            }
-                        });
-                    }, 1000);
+        if (email == '' || password == '' || firstname == '' || lastname == '') {
+            alert('Veuillez remplir tous les champs.');
+        } else {
+            const register = window.classUsers.register(email, password, firstname, lastname);
+            setTimeout(() => {
+                if (register.registered === true) {
+                    navigation.navigate('Se connecter');
+                } else if (register.error === true) {
+                    alert(register.message);
                 }
-            }
-        });
+            }, 100);
+        }
     }
 
     return(
@@ -106,10 +93,25 @@ export default function Register({navigation}) {
                 secureTextEntry={true}
                 onChangeText={text => setPassword(text)}
             />
-            <Button
-                title="S'inscrire"
-                onPress={() => Register()}
-            />
+        
+        <View style={{ 
+                marginTop: 10,
+                width: 300,
+                backgroundColor: '#007fff',
+                borderRadius: 5,
+                color: '#FFFFFF',
+                textAlign: 'center',
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+            }}>
+                <Text style={{ 
+                    color: '#FFFFFF', 
+                    padding: 10,
+                    width: 300,
+                    textAlign: 'center',
+                }} onPress={() => Register()}>S'inscrire</Text>
+            </View>
 
         </View>
     )
