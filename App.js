@@ -11,17 +11,13 @@ import { horizontalScale, moderateScale, verticalScale } from './navigation/util
 
 import ActivitiesScreen from './navigation/screens/Activities';
 import FavoritesScreen from './navigation/screens/Favorites';
-<<<<<<< HEAD
+import ParametersScreen from './navigation/screens/Parameters';
 import LogIn from './navigation/screens/LogIn';
 import Register from './navigation/screens/Register';
-=======
-import ParametersScreen from './navigation/screens/Parameters';
->>>>>>> createParameters
 
 import { View, Text } from 'react-native';
 import OptionsMenu from "react-native-option-menu";
 
-<<<<<<< HEAD
 import Database from './navigation/class/Database.class';
 import Encryption from './navigation/class/Encryption.class';
 import Users from './navigation/class/Users.class';
@@ -55,39 +51,10 @@ function Home({ navigation }) {
         AsyncStorage.getItem('user').then((response) => {
             if (response !== null) {
                 setUser(JSON.parse(response));
-=======
-function Home() {
-  return (
-    <>
-        <View style={{
-            position: 'absolute',
-            display: 'flex',
-            flexDirection: 'row',
-            width: '100%',
-            zIndex: 1,
-            marginTop: verticalScale(50),
-            justifyContent: 'flex-end',
-        }}>
-            <Ionicons name="person-circle-outline" size={30} color="#3D9090" style={{marginRight: 10}} />
-        </View>
-
-        <Tab.Navigator
-        screenOptions={({ route }) => ({
-            tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-
-            if (route.name === 'Activities') {
-                iconName = focused
-                ? 'ios-home'
-                : 'ios-home-outline';
-            } else if (route.name === 'Favorites') {
-                iconName = focused ? 'ios-heart' : 'ios-heart-outline';
->>>>>>> createParameters
             }
         });
     }, []);
 
-<<<<<<< HEAD
     return (
         <>
             <View style={{
@@ -165,25 +132,10 @@ function Home() {
             >
                 <Tab.Screen name="Activités" component={ActivitiesScreen} />
                 <Tab.Screen name="Favoris" component={FavoritesScreen} />
+                <Tab.Screen name="Paramètres" component={ParametersScreen} />
             </Tab.Navigator>
         </>
     );
-=======
-            return <Ionicons name={iconName} size={size} color={color} />;
-            },
-        })}
-        tabBarOptions={{
-            activeTintColor: '#3D9090',
-            inactiveTintColor: 'gray',
-        }}
-        >
-            <Tab.Screen name="Activities" component={ActivitiesScreen} />
-            <Tab.Screen name="Favorites" component={FavoritesScreen} />
-            <Tab.Screen name="Parameters" component={ParametersScreen} />
-        </Tab.Navigator>
-    </>
-  );
->>>>>>> createParameters
 }
 
 function App() {
@@ -195,16 +147,11 @@ function App() {
           component={Home}
           options={{ headerShown: false }}
         />
-<<<<<<< HEAD
         <Stack.Screen name="Activités" component={ActivitiesScreen} />
         <Stack.Screen name="Favoris" component={FavoritesScreen} />
+        <Stack.Screen name="Paramètres" component={ParametersScreen} />
         <Stack.Screen name="Se connecter" component={LogIn} />
         <Stack.Screen name="S'inscrire" component={Register} />
-=======
-        <Stack.Screen name="Activities" component={ActivitiesScreen} />
-        <Stack.Screen name="Favorites" component={FavoritesScreen} />
-
->>>>>>> createParameters
       </Stack.Navigator>
     </NavigationContainer>
   );
