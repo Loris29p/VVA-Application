@@ -12,6 +12,7 @@ import { horizontalScale, moderateScale, verticalScale } from './navigation/util
 import ActivitiesScreen from './navigation/screens/Activities';
 import FavoritesScreen from './navigation/screens/Favorites';
 import ParametersScreen from './navigation/screens/Parameters';
+import PersonalInfosScreen from './navigation/screens/PersonalInfos';
 import LogIn from './navigation/screens/LogIn';
 import Register from './navigation/screens/Register';
 import Activity from './navigation/screens/Activity';
@@ -151,6 +152,7 @@ function App() {
         <Stack.Screen name="Activités" component={ActivitiesScreen} />
         <Stack.Screen name="Favoris" component={FavoritesScreen} />
         <Stack.Screen name="Paramètres" component={ParametersScreen} />
+        <Stack.Screen name="Informations personnelles" component={PersonalInfosScreen} />
         <Stack.Screen name="Se connecter" component={LogIn} />
         <Stack.Screen name="S'inscrire" component={Register} />
         <Stack.Screen name="Activité" component={Activity} />
