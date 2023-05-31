@@ -3,6 +3,7 @@ import { View, Text, RefreshControl, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { horizontalScale, moderateScale, verticalScale } from '../utils/Metrics';
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function Favorites({navigation}) {
     const [refreshing, setRefreshing] = React.useState(false);
@@ -33,9 +34,21 @@ export default function Favorites({navigation}) {
         }, 2000);
       }, []);
   
-      React.useEffect(() => {
+    React.useEffect(() => {
         onRefresh();
-      }, []);
+    }, []);
+    
+    const formatHour = (hour) => {
+        var hour = hour.split(':');
+        return hour[0] + 'h' + hour[1];
+    }
+
+    const formatDateTime = (date) => {
+        var date = date.split(' ');
+        var date = date[0].split('-');
+
+        return date[2] + '/' + date[1] + '/' + date[0];
+    }
 
     return(
         <>
@@ -52,15 +65,32 @@ export default function Favorites({navigation}) {
                                 window.classUserActivities.getUserActivitiesByUserId(user.id).map((activity, index) => {
                                     var activityData = window.classActivities.getActivity(activity.id_activity);
                                     return (
-                                        <View key={index} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%', height: verticalScale(44), borderBottomWidth: 1, borderBottomColor: '#3D9090' }}>
-                                            <Text style={{ fontSize: moderateScale(16), fontWeight: 'bold', marginLeft: horizontalScale(16), color: 'gray' }}>{activityData.name}</Text>
-                                            <Text style={{ fontSize: moderateScale(16), fontWeight: 'bold', marginRight: horizontalScale(16), color: 'gray' }}>{activityData.description}</Text>
-                                            <Ionicons name="ios-information-circle-outline" size={moderateScale(24)} color="#3D9090" style={{ marginRight: horizontalScale(16) }}
-                                                onPress={() => {
-                                                    navigation.navigate('Activité', { activity: activityData, user: user });
-                                                }}
-                                            />
-                                        </View>
+                                        <TouchableOpacity 
+                                        style={{
+                                            display: 'flex',
+                                            flexDirection: 'row',
+                                            justifyContent: 'space-between',
+                                            alignItems: 'center',
+                                            padding: 10,
+                                            marginTop: 10,
+                                            marginRight: 10,
+                                            marginLeft: 10,
+                                            backgroundColor: 'white',
+                                            borderRadius: 10,
+                                        }}
+                                        onPress={
+                                            () => {
+                                                navigation.navigate('Activité', { activity: activityData, user: user });
+                                            }
+                                        }>
+                                            <View style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                                                <Text style={{
+                                                    fontSize: 16
+                                                }}>{activityData.name} le {formatDateTime(activityData.date)} à {formatHour(activityData.hours)} ({window.classUserActivities.getCountUsersFromActivityId(activityData.id)}/{activityData.max_users})</Text>
+                                            </View>
+                                            <Ionicons name="chevron-forward-outline" size={24} color="gray"/>
+
+                                        </TouchableOpacity>
                                     )
                                 })
                             }

@@ -28,21 +28,33 @@ export default function Activity({navigation, route}) {
             <View style={{ flex : 1, alignItems: 'center', justifyContent: 'start', display: 'flex', flexDirection: 'col'}}>
                 <ScrollView
                     style={{ width: '100%' }}>
-                    <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', height: verticalScale(44), borderBottomWidth: 1, borderBottomColor: '#3D9090', justifyContent: 'flex-end' }}>
-                    <Ionicons name={
-                        window.classUserActivities.isUserActivity(route.params.user.id, route.params.activity.id) === true ? 'star' : 'star-outline'
-                    } size={moderateScale(24)} color="#3D9090" style={{ marginRight: horizontalScale(16) }}
-                        onPress={() => {
-                            if (window.classUserActivities.isUserActivity(route.params.user.id, route.params.activity.id) === true) {
-                                window.classUserActivities.removeUserActivity(route.params.user.id, route.params.activity.id);
-                            } else {
-                                window.classUserActivities.addUserActivity(route.params.user.id, route.params.activity.id);
-                            }
+                    <View style={{ display: 'flex', alignItems: 'center', width: '100%', height: verticalScale(44), borderBottomWidth: 1, borderBottomColor: '#3D9090', justifyContent: 'flex-start', flexDirection: 'row-reverse' }}>
+                        <Ionicons name={
+                            window.classUserActivities.isUserActivity(route.params.user.id, route.params.activity.id) === true ? 'star' : 'star-outline'
+                        } size={moderateScale(24)} color="#3D9090" style={{ marginRight: horizontalScale(16) }}
+                            onPress={() => {
+                                if (window.classUserActivities.isUserActivity(route.params.user.id, route.params.activity.id) === true) {
+                                    window.classUserActivities.removeUserActivity(route.params.user.id, route.params.activity.id);
+                                } else {
+                                    window.classUserActivities.addUserActivity(route.params.user.id, route.params.activity.id);
+                                }
 
-                            navigation.goBack();
-                        }}
-                        key={route.params.activity.id}
-                    />
+                                navigation.goBack();
+                            }}
+                        />
+
+                        {
+                            window.classUserActivities.isUserActivity(route.params.user.id, route.params.activity.id) === true ? (
+                                <Ionicons name='ios-trash-outline' size={moderateScale(24)} color="#3D9090" style={{ marginRight: horizontalScale(16) }}
+                                    onPress={() => {
+                                        window.classUserActivities.removeUserActivity(route.params.user.id, route.params.activity.id);
+                                        navigation.goBack();
+                                    }}
+                                />
+                            ) : (
+                                null
+                            )
+                        }
                     </View>
                     <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%', height: verticalScale(44), borderBottomWidth: 1, borderBottomColor: '#3D9090' }}>
                         <Text style={{ fontSize: moderateScale(16), fontWeight: 'bold', marginLeft: horizontalScale(16), color: 'gray' }}>Description</Text>
