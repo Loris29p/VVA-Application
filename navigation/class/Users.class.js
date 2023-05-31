@@ -71,7 +71,6 @@ class Users {
         });
 
         const responseData = window.classDatabase.update("UPDATE users SET email = '" + email + "', password = '" + window.classEncryption.encrypt(password) + "', firstname = '" + firstname + "', lastname = '" + lastname + "' WHERE id = " + id);
-        console.log(responseData);
         responseData.then(function(response) {
             user.email = email;
             user.password = password;
