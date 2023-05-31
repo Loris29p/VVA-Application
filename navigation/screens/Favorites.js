@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { horizontalScale, moderateScale, verticalScale } from '../utils/Metrics';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Button } from 'react-native';
 
 export default function Favorites({navigation}) {
     const [refreshing, setRefreshing] = React.useState(false);
