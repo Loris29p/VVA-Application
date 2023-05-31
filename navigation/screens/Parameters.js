@@ -43,10 +43,7 @@ export default function Parameters({navigation}) {
                 marginRight: 10,
                 marginLeft: 10,
                 backgroundColor: 'white',
-                borderTopLeftRadius: 10,
-                borderTopRightRadius: 10,
-                borderBottomColor: 'gray',
-                borderBottomWidth: 1,
+                borderRadius: 10,
             }}
             onPress={
                 () => navigation.navigate('Informations personnelles', {user: userInfos})
