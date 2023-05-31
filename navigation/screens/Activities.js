@@ -114,13 +114,22 @@ export default function Activities({navigation}) {
                     </View>
                 ) : (
                     <View style={{ flex : 1, alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'col'}}>
-                        <ScrollView
-                            style={{ width: '100%' }}
-                            refreshControl={
-                            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-                            }>
-                            <Text style={{ fontSize: moderateScale(16), fontWeight: 'bold', marginLeft: horizontalScale(16), color: 'gray' }}>Vous n'êtes pas connecté</Text>
-                        </ScrollView>
+                        <Text style={{ fontSize: moderateScale(16), textAlign: 'center', fontWeight: 'bold', color: 'gray' }}>Vous devez être connecté pour accéder à cette page.</Text>
+
+                        <Button
+                            title="Se connecter"
+                            onPress={() => navigation.navigate('Se connecter')}
+                        />
+
+                        <Button
+                            title="S'inscrire"
+                            onPress={() => navigation.navigate("S'inscrire")}
+                        />
+
+                        <Button
+                            title="Rafraîchir"
+                            onPress={() => onRefresh()}
+                        />
                     </View>
                 )
             }

@@ -68,6 +68,10 @@ export default function Activity({navigation, route}) {
                         <Text style={{ fontSize: moderateScale(16), fontWeight: 'bold', marginLeft: horizontalScale(16), color: 'gray' }}>Heure</Text>
                         <Text style={{ fontSize: moderateScale(16), fontWeight: 'bold', marginRight: horizontalScale(16), color: 'gray' }}>{formatHour(route.params.activity.hours)}</Text>
                     </View>
+                    <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%', height: verticalScale(44), borderBottomWidth: 1, borderBottomColor: '#3D9090' }}>
+                        <Text style={{ fontSize: moderateScale(16), fontWeight: 'bold', marginLeft: horizontalScale(16), color: 'gray' }}>Utilisateurs</Text>
+                        <Text style={{ fontSize: moderateScale(16), fontWeight: 'bold', marginRight: horizontalScale(16), color: 'gray' }}>{window.classUserActivities.getCountUsersFromActivityId(route.params.activity.id)}/{route.params.activity.max_users}</Text>
+                    </View>
                 </ScrollView>
             </View>
         </>

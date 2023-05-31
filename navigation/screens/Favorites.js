@@ -50,6 +50,16 @@ export default function Favorites({navigation}) {
         return date[2] + '/' + date[1] + '/' + date[0];
     }
 
+    const tableToCount = (table) => {
+        var count = 0;
+        for (var i = 0; i < table.length; i++) {
+            if (table[i] !== null) {
+                count++;
+            }
+        }
+        return count;
+    }
+
     return(
         <>
              {
@@ -62,50 +72,63 @@ export default function Favorites({navigation}) {
                             }>
 
                             {
-                                window.classUserActivities.getUserActivitiesByUserId(user.id).map((activity, index) => {
-                                    var activityData = window.classActivities.getActivity(activity.id_activity);
-                                    return (
-                                        <TouchableOpacity 
-                                        style={{
-                                            display: 'flex',
-                                            flexDirection: 'row',
-                                            justifyContent: 'space-between',
-                                            alignItems: 'center',
-                                            padding: 10,
-                                            marginTop: 10,
-                                            marginRight: 10,
-                                            marginLeft: 10,
-                                            backgroundColor: 'white',
-                                            borderRadius: 10,
-                                        }}
-                                        onPress={
-                                            () => {
-                                                navigation.navigate('Activité', { activity: activityData, user: user });
-                                            }
-                                        }>
-                                            <View style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-                                                <Text style={{
-                                                    fontSize: 16
-                                                }}>{activityData.name} le {formatDateTime(activityData.date)} à {formatHour(activityData.hours)} ({window.classUserActivities.getCountUsersFromActivityId(activityData.id)}/{activityData.max_users})</Text>
-                                            </View>
-                                            <Ionicons name="chevron-forward-outline" size={24} color="gray"/>
+                                tableToCount(window.classUserActivities.getUserActivitiesByUserId(user.id)) > 0 ? (
+                                    window.classUserActivities.getUserActivitiesByUserId(user.id).map((activity, index) => {
+                                        var activityData = window.classActivities.getActivity(activity.id_activity);
+                                        return (
+                                            <TouchableOpacity 
+                                            style={{
+                                                display: 'flex',
+                                                flexDirection: 'row',
+                                                justifyContent: 'space-between',
+                                                alignItems: 'center',
+                                                padding: 10,
+                                                marginTop: 10,
+                                                marginRight: 10,
+                                                marginLeft: 10,
+                                                backgroundColor: 'white',
+                                                borderRadius: 10,
+                                            }}
+                                            onPress={
+                                                () => {
+                                                    navigation.navigate('Activité', { activity: activityData, user: user });
+                                                }
+                                            }>
+                                                <View style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                                                    <Text style={{
+                                                        fontSize: 16
+                                                    }}>{activityData.name} le {formatDateTime(activityData.date)} à {formatHour(activityData.hours)} ({window.classUserActivities.getCountUsersFromActivityId(activityData.id)}/{activityData.max_users})</Text>
+                                                </View>
+                                                <Ionicons name="chevron-forward-outline" size={24} color="gray"/>
 
-                                        </TouchableOpacity>
-                                    )
-                                })
+                                            </TouchableOpacity>
+                                        )
+                                    })
+                                ) : (
+                                    <Text style={{ fontSize: moderateScale(16), textAlign: 'center', fontWeight: 'bold', marginLeft: horizontalScale(16), color: 'gray' }}>Vous n'avez pas d'activités favorites</Text>
+                                )
                             }
 
                         </ScrollView>
                     </View>
                 ) : (
                     <View style={{ flex : 1, alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'col'}}>
-                        <ScrollView
-                            style={{ width: '100%' }}
-                            refreshControl={
-                            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-                            }>
-                            <Text style={{ fontSize: moderateScale(16), fontWeight: 'bold', marginLeft: horizontalScale(16), color: 'gray' }}>Vous n'êtes pas connecté</Text>
-                        </ScrollView>
+                        <Text style={{ fontSize: moderateScale(16), textAlign: 'center', fontWeight: 'bold', color: 'gray' }}>Vous devez être connecté pour accéder à cette page.</Text>
+
+                        <Button
+                            title="Se connecter"
+                            onPress={() => navigation.navigate('Se connecter')}
+                        />
+
+                        <Button
+                            title="S'inscrire"
+                            onPress={() => navigation.navigate("S'inscrire")}
+                        />
+
+                        <Button
+                            title="Rafraîchir"
+                            onPress={() => onRefresh()}
+                        />
                     </View>
                 )
             }

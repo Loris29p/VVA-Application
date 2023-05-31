@@ -77,16 +77,16 @@ function Home({ navigation }) {
                             marginRight: 10,
                         }}/>}
                         destructiveIndex={1}
-                        options={["Se déconnecter", "Retour"]}
+                        options={["Paramètres", "Se déconnecter", "Retour"]}
                         actions={[
+                        () => {
+                            navigation.navigate('Paramètres');
+                        },
                         () => {
                             AsyncStorage.removeItem('user');
                             AsyncStorage.removeItem('isConnected');
                             setIsConnected(false);
                             setUser(null);
-                        },
-                        () => {
-                            navigation.navigate('Activités');
                         }
                         ]}
                         />
@@ -134,7 +134,7 @@ function Home({ navigation }) {
             >
                 <Tab.Screen name="Activités" component={ActivitiesScreen} />
                 <Tab.Screen name="Favoris" component={FavoritesScreen} />
-                <Tab.Screen name="Paramètres" component={ParametersScreen} />
+                {/* <Tab.Screen name="Paramètres" component={ParametersScreen} /> */}
             </Tab.Navigator>
         </>
     );
