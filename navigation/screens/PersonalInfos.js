@@ -13,7 +13,6 @@ export default function PersonalInfos({navigation, route}) {
     Sites.forEach(site => {SitesNames.push(site.name)});
     
     var User = window.classUsers.getUserByEmail(route.params.user.email);
-    console.log('user', window.classUsers.getUserByEmail(route.params.user.email))
     var UserInfos = {
         id: User.id,
         lastname: User.lastname,

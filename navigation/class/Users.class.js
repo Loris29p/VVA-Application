@@ -78,6 +78,20 @@ class Users {
             user.lastname = lastname;
             user.id_role = user.id_role;
             user.id_site = user.id_site;
+
+            AsyncStorage.getItem('user').then((response) => {
+                if (response !== null) {
+                    let user = JSON.parse(response);
+                    user.id = id;
+                    user.email = email;
+                    user.password = password;
+                    user.firstname = firstname;
+                    user.lastname = lastname;
+                    user.id_role = user.id_role;
+                    user.id_site = user.id_site;
+                    AsyncStorage.setItem('user', JSON.stringify(user));
+                }
+            });
         });
     }
 
