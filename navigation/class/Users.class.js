@@ -70,7 +70,7 @@ class Users {
             return user.id === id;
         });
 
-        const responseData = window.classDatabase.update("UPDATE users SET email = '" + email + "', password = '" + window.classEncryption.encrypt(password) + "', firstname = '" + firstname + "', lastname = '" + lastname + "' WHERE id = " + id);
+        const responseData = window.classDatabase.update("UPDATE users SET email = '" + email + "', firstname = '" + firstname + "', lastname = '" + lastname + "' WHERE id = " + id);
         responseData.then(function(response) {
             user.email = email;
             user.password = password;
